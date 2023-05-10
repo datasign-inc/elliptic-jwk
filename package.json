@@ -1,0 +1,39 @@
+{
+  "name": "elliptic-jwk",
+  "version": "0.0.1",
+  "main": "./dist/cjs/src/index.js",
+  "module": "./dist/esm/src/index.js",
+  "type": "module",
+  "license": "MIT",
+  "types": "./dist/types/src/index.d.ts",
+  "exports": {
+    "import": "./dist/esm/src/index.js",
+    "require": "./dist/cjs/src/index.js"
+  },
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:cjs": "tsc -p tsconfig.cjs.json && echo {\\\"type\\\": \\\"commonjs\\\"} > ./dist/cjs/src/package.json",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "base64url": "^3.0.1",
+    "elliptic": "^6.5.4"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/elliptic": "^6.4.14",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.15.6",
+    "chai": "^4.3.7",
+    "jose": "^4.13.1",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
+  },
+  "files": [
+    "dist"
+  ]
+}
